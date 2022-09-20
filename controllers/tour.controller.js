@@ -74,13 +74,13 @@ exports.getATour = async (req, res, next) => {
         const result = await getATourService(id)
         res.status(200).json({
             status: 'success',
-            message: "Data inserted Successfully",
+            message: "Data loaded Successfully",
             data: result
         })
     } catch (error) {
         res.status(400).json({
             status: "fail",
-            message: 'Data in not inserted',
+            message: 'Data not found',
             error: error.message
         })
     }
@@ -112,7 +112,7 @@ exports.trendingTours = async (req, res, next) => {
     } catch (error) {
         res.status(400).json({
             status: "fail",
-            message: "Can't update the data",
+            message: "Can't get the data",
             error: error.message
         })
     }
@@ -127,7 +127,7 @@ exports.cheapestTours = async (req, res, next) => {
     } catch (error) {
         res.status(400).json({
             status: "fail",
-            message: "Can't update the data",
+            message: "Can't get the data",
             error: error.message
         })
     }
