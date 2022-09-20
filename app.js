@@ -9,7 +9,7 @@ app.use(express.json())
 
 
 app.get('/', (req, res) => {
-    res.send("Hello Broooooooor");
+    res.send("Hello Broooooooooo, WELCOME TO TMS.");
 })
 
 app.use("/api/v1/tours", tourRoute)
