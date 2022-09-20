@@ -15,7 +15,7 @@ exports.createTourService = async (data) => {
     return result
 }
 exports.getATourService = async (tourId) => {
-    const tour = await Tour.findOne({ _id: tourId })
+    const tour = await Tour.findByIdAndUpdate({ _id: tourId }, { $inc: { counter: 1 } }, { new: true })
     return tour
 }
 
@@ -23,5 +23,15 @@ exports.updateATourService = async (tourId, data) => {
 
     const result = await Tour.updateOne({ _id: tourId }, { $set: data }, { runValidators: true })
 
+    return result
+}
+
+exports.trendingToursService = async () => {
+    const result = await Tour.find({}).sort({ counter: -1 }).limit(3)
+    return result
+}
+
+exports.cheapestToursService = async () => {
+    const result = await Tour.find({}).sort({ price: 1 }).limit(3)
     return result
 }

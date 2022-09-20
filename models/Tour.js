@@ -38,6 +38,10 @@ const tourSchema = mongoose.Schema({
     image: {
         type: String,
         required: true
+    },
+    counter: {
+        type: Number,
+        required: true
     }
 }, {
     timestamps: true,
